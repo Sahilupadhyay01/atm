@@ -1,0 +1,37 @@
+<div class="container my-5">
+    
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4" style="border:1px solid black">
+            
+            <h1 class = "mb-3" style="padding-left:20px;padding-top:10px">Withdraw Money</h1>
+            <h4 class="fw-bold text-danger" *ngIf="valid == 'invalid'">Check Credentials again or Insufficient Balance</h4>
+            
+            <h4 class="fw-bold text-secondary" *ngIf="valid == 'valid'">Hi {{balanceInfo.name}}, <span class="WebRupee">&#x20B9;</span> {{subAmount}} balance is successfully debited from your account.</h4>
+            <h4 class="fw-bold text-secondary" *ngIf="valid == 'valid'">Now, Currently You have total <span class="WebRupee">&#x20B9;</span> {{balanceInfo.currBal}} balance left in your account.</h4>
+
+            <form #form="ngForm" (ngSubmit)="withdrawData()" *ngIf="valid == 'invalid' || valid == ''">
+                <div class="mb-3">
+                    <i class="fa-regular fa-credit-card me-2"></i>
+                    <label for="accno" class="form-label me-2">Account No (16 Digits)</label>
+                    <input type="number" class="form-control" id="accno" name="accountNumber" placeholder="0000 0000 0000 0000" [(ngModel)]="accountNumber" required>
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-regular fa-lock me-2"></i>
+                    <label for="pin" class="form-label me-2">Pin (4 Digits)</label>
+                    <input type="password" minlength="4" maxlength="4" class="form-control" id="pin" name="cardPin" placeholder="x x x x" [(ngModel)]="cardPin" required>
+                </div>
+                <div class="mb-3">
+                    <i class="fa-solid fa-hand-holding-dollar me-2"></i>
+                    <label for="amount" class="form-label me-2">Enter Amount</label>
+                    <input type="number" class="form-control" id="amount" name="subAmount" placeholder="&#x20B9;" [(ngModel)]="subAmount" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-hover " style="margin-left:100px">WithDraw</button>
+            </form>
+        </div>
+    </div>
+
+    
+</div>

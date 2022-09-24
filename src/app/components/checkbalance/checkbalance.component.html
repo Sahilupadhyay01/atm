@@ -1,0 +1,29 @@
+<div class="container my-5" >
+    
+    
+
+    <div class="row">
+        <div class="col-4"></div>    
+        <div class="col-4" style="border:1px solid black">
+            <h1 class = "mb-5" id="check">Check Balance</h1>
+            <h4 class="fw-bold text-danger" *ngIf="valid == 'invalid'">Check Credentials again</h4>
+            
+            <h4 class="fw-bold text-secondary" *ngIf="valid == 'valid'">Hi {{balanceInfo.name}}, Currently You have total <span class="WebRupee">&#x20B9;</span> {{balanceInfo.currBal}} balance in your account.</h4>
+            
+            <form #form="ngForm" (ngSubmit)="submitData()" *ngIf="valid == 'invalid' || valid == ''">
+                <div class="mb-3">
+                    <i class="fa-regular fa-credit-card me-2"></i>
+                    <label for="accno" class="form-label me-2">Account No (16 Digits)</label>
+                    <input type="number" class="form-control" name="accountNumber" id="accno" placeholder="0000 0000 0000 0000" [(ngModel)]="accountNumber" required>
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-regular fa-lock me-2"></i>
+                    <label for="pin" class="form-label me-2">Pin (4 Digits)</label>
+                    <input type="password" minlength="4" maxlength="4" name="cardPin" class="form-control" id="pin" placeholder="x x x x" [(ngModel)]="cardPin" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-hover" id="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

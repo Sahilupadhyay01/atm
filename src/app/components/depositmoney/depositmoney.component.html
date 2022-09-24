@@ -1,0 +1,34 @@
+<div class="container my-5">
+    
+
+    <div class="row">
+        <div class="col-4"></div>  
+        <div class="col-4" style="border:1px solid black; padding-top:10px;">
+            <h1 class = "mb-3">Deposit To Account</h1>
+            <h4 class="fw-bold text-danger" *ngIf="valid == 'invalid'">Check Credentials again</h4>
+            <h4 class="fw-bold text-secondary" *ngIf="valid == 'valid'">Hi {{balanceInfo.name}}, <span class="WebRupee">&#x20B9;</span> {{addAmount}} balance is successfully credited to your account.</h4>
+            <h4 class="fw-bold text-secondary" *ngIf="valid == 'valid'">Currently You have total <span class="WebRupee">&#x20B9;</span> {{balanceInfo.currBal}} balance added to your account.</h4>
+            <form #form="ngForm" (ngSubmit)="depositData()" *ngIf="valid == 'invalid' || valid == ''">
+                <div class="mb-3">
+                    <i class="fa-regular fa-credit-card me-2"></i>
+                    <label for="accno" class="form-label">Account No (16 Digits)</label>
+                    <input type="number" class="form-control" id="accno" name="accountNumber" placeholder="0000 0000 0000 0000" [(ngModel)]="accountNumber" required>
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-regular fa-lock me-2"></i>
+                    <label for="pin" class="form-label me-2">Pin (4 Digits)</label>
+                    <input type="password" minlength="4" maxlength="4" class="form-control" id="pin" name="cardPin" placeholder="x x x x" [(ngModel)]="cardPin" required>
+                </div>
+                <div class="mb-3">
+                    <i class="fa-solid fa-coins me-2"></i>
+                    <label for="amount" class="form-label me-2">Enter Amount</label>
+                    <input type="number" class="form-control" id="amount" name="addAmount" placeholder="&#x20B9;" [(ngModel)]="addAmount" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-hover " style="margin-left:100px">Deposit</button>
+            </form>
+        </div>
+    </div>
+
+    
+</div>
