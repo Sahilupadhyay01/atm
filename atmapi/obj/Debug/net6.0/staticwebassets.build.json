@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vuJZ6PVctVH1wrSuj8YZsX3tXG+zjdAoP7MgA7GYYrU=",
+  "Source": "atmapi",
+  "BasePath": "_content/atmapi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
